@@ -1,5 +1,5 @@
 {% set name = "cacts" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/cacts-{{ version }}.tar.gz
-  sha256: 7c3136915007cea3605c97786230023187c409bc9af110bc352ef8bc0ef57300
+  sha256: 8765b8f8685bf8a8b35c8e07959e75b5b7bc8a5bd777c09c35647c1ad255b6e3
 
 build:
   entry_points:
