@@ -1,0 +1,57 @@
+schema_version: 1
+
+context:
+  name: cacts
+  version: "0.3.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/cacts-${{ version }}.tar.gz
+  sha256: c31f677a40fc777f6842fc93e1cefc3644e48d332a0d7c1520f53fd29fddb775
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - cacts = cacts:main
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - psutil
+    - pyyaml
+
+tests:
+  - python:
+      imports:
+        - cacts
+      pip_check: true
+      python_version: ${{ python_min }}
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - cacts --help
+      - cacts --version
+
+about:
+  summary: A framework for configurable unit testing of a cmake-based project
+  license: BSD-3-Clause
+  license_file: license
+  homepage: https://github.com/E3SM-Project/cacts
+
+extra:
+  recipe-maintainers:
+    - mahf708
+    - bartgol
+    - xylar
