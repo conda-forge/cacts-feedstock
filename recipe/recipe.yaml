@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: cacts
-  version: "0.4.0"
+  version: "1.0.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/cacts-${{ version }}.tar.gz
-  sha256: 5e95a3989d6fada4357ee0158043394a681c87cc07bac77fb4643e8ecae137ea
+  sha256: f01aeb42d14bdbef5eeee736484a8cc3024c1fc08752f76b74aad9c9ac80cd17
 
 build:
   number: 0
